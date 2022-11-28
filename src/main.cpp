@@ -47,7 +47,7 @@ int main (){
                     std::cout << "\nUSUÁRIO CADASTRADO\n";
                 }
 
-                if (!(entrada == "login" || entrada == "sair"))
+                if (!(entrada == "login" || entrada == "sair" || entrada == "cadastrar"))
                     std::cout << "Entrada Inválida\n";
                     
             } while (!(entrada == "login" || entrada == "sair"));
