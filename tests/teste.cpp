@@ -1,20 +1,7 @@
-#include <iostream>
-#include "../include/biblioteca/sistema.hpp"
-#include "../include/biblioteca/biblioteca.hpp"
-
-#include <locale>
-
-std::string get_classe (Pessoa &pessoa){
-    return pessoa.get_classe();
-}
-    
-
-int main  (){
-    Biblioteca biblioteca = Biblioteca ();
-    biblioteca.cria();
-
-
-
-
-    return 0;
-}
+#define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
+#include "teste_admin.hpp"
+#include "teste_biblioteca.hpp"
+#include "teste_livro.hpp"
+#include "teste_pessoa.hpp"
+#include "teste_sistema.hpp"
+#include "teste_usuario.hpp"
