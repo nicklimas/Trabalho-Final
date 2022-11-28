@@ -88,7 +88,7 @@ int main (){
 
                     std::cout << "\n--------------------------------------\n\n";
                     std::cout << "Para ver a lista de livros digite: livros\n"
-                            << "Para adcionar um livro a biblioteca digite: adcionar\n" 
+                            << "Para adicionar um livro a biblioteca digite: adicionar\n" 
                             << "Para remover um livro da biblioteca digite: remover\n"
                             << "Para ver o historico de usuarios de um livro digite: historico\n"
                             << "Para ver os dados da biblioteca digite: dados\n"
@@ -112,9 +112,9 @@ int main (){
                             break;
                         }
 
-                        if (entrada == "adcionar"){
+                        if (entrada == "adicionar"){
                             fflush(stdin);
-                            std::cout << "ADCIONANDO LIVRO\n\n";
+                            std::cout << "ADICIONANDO LIVRO\n\n";
                             try{ 
                                 Livro *livro = biblioteca.adciona_livro(); 
                                 if (livro != nullptr)
