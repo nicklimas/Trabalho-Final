@@ -88,9 +88,9 @@ int main (){
 
                     std::cout << "\n--------------------------------------\n\n";
                     std::cout << "Para ver a lista de livros digite: livros\n"
-                            << "Para adcionar um livro à biblioteca digite: adcionar\n" 
+                            << "Para adcionar um livro a biblioteca digite: adcionar\n" 
                             << "Para remover um livro da biblioteca digite: remover\n"
-                            << "Para ver o histórico de usuarios de um livro digite: historico\n"
+                            << "Para ver o historico de usuarios de um livro digite: historico\n"
                             << "Para ver os dados da biblioteca digite: dados\n"
                             << "Para sair digite: sair\n"
                             << "\nDigite o seu comando: ";
@@ -168,7 +168,7 @@ int main (){
                             getline (std::cin, livro);
 
                             if(biblioteca.get_livros()->find(livro) == biblioteca.get_livros()->end())
-                                std::cout << "Livro não encontrado\n";
+                                std::cout << "Livro nao encontrado\n";
 
                             else{
                                 sistema.get_historico(livro);
@@ -191,13 +191,13 @@ int main (){
                             break;
                         
                         else 
-                            std::cout << "Comando inválido\n";
+                            std::cout << "Comando invalido\n";
                     }
 
                     fflush(stdin);
 
                     if(entrada == "sair"){
-                        std::cout << "Você finalizou sua sessão e será redirecionado para o menu principal\n";
+                        std::cout << "Voce finalizou sua sessao e sera redirecionado para o menu principal\n";
                         std::system("pause");
                         break;
                     }
@@ -212,7 +212,7 @@ int main (){
                 Usuario usuario = Usuario (login->get_nome(), login->get_email(), login->get_senha());
                 usuario.inicia_set_livros (biblioteca.get_livros());
 
-                std::cout << "BEM-VINDO À ÁREA DO VISITANTE";
+                std::cout << "BEM-VINDO A AREA DO VISITANTE";
 
                 //loop do usuario
                 while (std::cin){
@@ -222,9 +222,9 @@ int main (){
                             << "Para ver a lista de livros digite: livros\n"
                             << "Para ver a lista de autores digite: autores\n"
                             << "Para ver a listade categorias digite: categorias\n\n"
-                            << "Para pegar algum livro você primeiro deve fazer uma busca\n"
+                            << "Para pegar algum livro voce primeiro deve fazer uma busca\n"
                             << "Para devolver algum livro digite: devolver \n\n"
-                            << "Para ver os livros que você possui digite: lista\n"
+                            << "Para ver os livros que voce possui digite: lista\n"
                             << "Para ver os dados da sua conta digite: dados\n"
                             << "Para deletar sua conta digite: deletar (exige confirmação)\n\n"
                             << "Para sair digite: sair\n"
@@ -251,7 +251,7 @@ int main (){
                             }
                             livro->view_dados();
                             if (livro->get_status()){
-                                std::cout << "O livro não está disponível para emprestímo\n";
+                                std::cout << "O livro não está disponível para emprestimo\n";
                                 std::system("pause");
                                 break;
                             }
@@ -314,7 +314,7 @@ int main (){
                             std::cout << "Digite o nome do livro que deseja devolver: ";
                             getline (std::cin, livro);
                             if(usuario.get_livros()->find(biblioteca.get_livros()->find(livro)->second) == usuario.get_livros()->end())
-                                std::cout << "Livro não encontrado\n";
+                                std::cout << "Livro nao encontrado\n";
                             else
                                 usuario.devolve_livro(biblioteca.get_livros()->find(livro)->second);
                             std::system("pause");
@@ -351,13 +351,13 @@ int main (){
                             break;
 
                         else 
-                            std::cout << "Comando inválido\n";
+                            std::cout << "Comando invalido\n";
                     }
 
                     fflush(stdin);
 
                     if(entrada == "sair" || entrada == "deletar"){
-                        std::cout << "Você finalizou sua sessão e será redirecionado para o menu principal\n";
+                        std::cout << "Voce finalizou sua sessao e sera redirecionado para o menu principal\n";
                         std::system("pause");
                         break;
                     }

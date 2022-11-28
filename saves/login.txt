@@ -1,3 +1,4 @@
 a#admin#admin#admin
 
 u#nicklimas2004@gmail.com#1234#Nicolas
+u#artvilela123@gmail.com#arthur123#Arthur
