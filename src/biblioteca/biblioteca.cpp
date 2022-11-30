@@ -3,22 +3,21 @@
 
 
 //Chama as funções para iniciar os atributos a partir dos arquivos de salvamento
+
 Biblioteca::Biblioteca (){
     inicia_livros();
     inicia_autores();
     inicia_categorias();
 }
 
-//Destrutor
+
 Biblioteca::~Biblioteca (){}
 
-//Retorna o map de livros
 std::map <std::string, Livro*>* Biblioteca::get_livros (){
     return &_livros;
 }
 
 
-//Le o arquivo de livros e inicia o map com eles
 void Biblioteca::inicia_livros (){
 
     std::ifstream arquivo ("saves/livros.txt");
@@ -47,7 +46,7 @@ void Biblioteca::inicia_livros (){
 }
 
 
-//Separa os livros por categorias
+
 void Biblioteca::inicia_categorias (){
     std::ifstream arquivo ("saves/categorias.txt");
     std::string linha;
@@ -70,7 +69,7 @@ void Biblioteca::inicia_categorias (){
 }
 
 
-//Separa os livros por autores
+
 void Biblioteca::inicia_autores (){
     std::ifstream arquivo ("saves/autores.txt");
     std::string linha;
@@ -94,42 +93,41 @@ void Biblioteca::inicia_autores (){
 }
 
 
-//Escreve na tela todos livros da biblioteca
+
 void Biblioteca::lista_livros (){
     for (auto &x : _livros)
         std::cout << x.first << std::endl;
 }
 
 
-//Escreve na tela todos autores
+
 void Biblioteca::lista_autores (){
     for (auto &x : _autores)
         std::cout << x.first << std::endl;
 }
 
 
-//Escreve na tela os livros de determinado autor
+
 void Biblioteca::lista_livros_do_autores (std::string autor){
     for(auto &x : _autores.find(autor)->second)
         std::cout << x->get_titulo() << std::endl;
 }
 
 
-//Escreve na tela todas categorias
+
 void Biblioteca::lista_categorias (){
     for (auto &x : _categorias)
         std::cout << x.first << std::endl;
 }
 
 
-//Escreve na tela os livros de determinada categoria
 void Biblioteca::lista_livros_da_categoria (std::string categoria){
     for(auto &x : _categorias.find(categoria)->second)
         std::cout << x->get_titulo() << std::endl;
 }
 
 
-//Adciona um autor novo ao arquivo de autores e ao map de autores
+
 void Biblioteca::add_autor (std::string autor, std::string titulo){
     Arquivos::adciona_linha ("saves/autores.txt", autor);
     std::set <Livro*> livros_do_autor;
@@ -138,7 +136,6 @@ void Biblioteca::add_autor (std::string autor, std::string titulo){
 }
 
 
-//Adciona uma categoria nova ao arquivo de categorias e ao map de categorias
 void Biblioteca::add_categoria (std::string categoria, std::string titulo){
     Arquivos::adciona_linha ("saves/categorias.txt", categoria);
     std::set <Livro*> livros_da_categoria;
@@ -146,12 +143,7 @@ void Biblioteca::add_categoria (std::string categoria, std::string titulo){
     _categorias [categoria] = livros_da_categoria;
 }
     
-/*
-Metodo que cria um livro novo e retorna um ponteira para ele
-Adciona ele ao arquivo de livros e ao map de livros
-Caso o autor não exista, adciona ele ao arquivo de autores e ao map de autores
-Caso a categoria não existe, adciona ela ao arquivo de categorias e ao map de categorias
-*/
+
 Livro* Biblioteca::adciona_livro (){
     std::string titulo, autor, categoria, sinopse, disponivel, paginas, corredor, prateleira;
     
@@ -297,14 +289,8 @@ Livro* Biblioteca::adciona_livro (){
     return livro;
 }
 
-/*
-Metodo que encontra um livro
-Recebe uma string que pode ser o título de um livro, um autor ou uma categoria
-Caso seja um livro retorna o proprio livro
-Caso seja um autor mostra os livros que esse autor tem para serem escolhidos
-Caso seja uma categoria mostra os livros que essa categoria tem para serem escolhidos
-Se a pesquisa não encontrar nada retorna um ponteira nulo
-*/
+
+
 Livro* Biblioteca::find_livro (std::string pesquisa){
     if (_livros.find(pesquisa) != _livros.end()){
         return _livros.find(pesquisa)->second;
@@ -335,17 +321,7 @@ Livro* Biblioteca::find_livro (std::string pesquisa){
 
 }
 
-/*
-Metodo que remove um livro
-Recebe um livro
-Deleta o livro do arquivo de livros
-Deleta o arquivo de historico do livro
-Remove o livro do map de livros
-Remove o livro do map de autores
-    Caso seja o unico livro desse autor, deleta o autor do arquivo de autor e do map de autores
-Remove o livro do map de categorias
-    Caso seja o unico livro da categoria, deleta a categoria do arquivo de categorias e do map de categorias
-*/
+
 void Biblioteca::remove_livro(Livro* livro){
 
     //RETIRANDO LIVRO DO ARQUIVO LIVROS
@@ -376,10 +352,5 @@ void Biblioteca::remove_livro(Livro* livro){
 
     std::cout << "Livro removido da biblioteca \n";
 }
-
-
-
-
-
 
 
