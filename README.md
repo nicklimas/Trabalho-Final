@@ -51,3 +51,15 @@ Funcionalidades do menu inicial:
 9.Opção de deletar a conta do sistema.
 
 10.Sair: Faz o logout do usuário e volta ao menu inicial.
+
+## Autores
+
+Arthur Ferreira Vilela
+
+Gabriel Cardoso Peroni
+
+Mariana Pinho Barroso Sousa
+
+Nicolas Limas Nascimento
+
+Samantha Kelly de Souza Sena
