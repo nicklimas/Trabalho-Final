@@ -1,3 +1,14 @@
+/**
+ * @file admin.hpp
+ * @author  Arthur, Gabriel, Mariana, Nicolas, Samantha.
+ * @brief Classe do administrador
+ * @version 0.1
+ * @date 2022-11-30
+ * 
+ * @copyright Copyright (c) 2022
+ * 
+ */
+
 #ifndef ADMIN_H
 #define ADMIN_H
 
@@ -9,7 +20,6 @@
 #include <sstream>
 
 
-//Classe do administrador
 
 class Admin : public Pessoa {
 
@@ -17,14 +27,32 @@ class Admin : public Pessoa {
 
         //METODOS
 
-        //  Construtores
+        /**
+         * @brief Constrói um novo objeto Admin 
+         * 
+         * @param email 
+         * @param senha 
+         */
         Admin (std::string email, std::string senha);
+
+        /**
+         * @brief Destrói o objeto Admin 
+         * 
+         */
         ~Admin ();
 
-        //Get
+        /**
+         * @brief Retorna a string "admin"
+         * 
+         * @return std::string classe
+         */
         std::string get_classe () const override;
 
-        // Auxiliar
+        /**
+         * @brief Escreve na tela os dados da biblioteca
+         * 
+         * @return std::string dados
+         */
         std::string view_dados () const override;
 };
 
