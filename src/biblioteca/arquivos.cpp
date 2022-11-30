@@ -1,11 +1,6 @@
 #include "../../include/biblioteca/arquivos.hpp"
 
-/*  
--Recebe:    o endereço de um arquivo com apenas uma informação por linha 
-            o termo que é para se encontrado
 
--Deleta a linha do arquivo que tem esse termo 
-*/
 void Arquivos::deleta_linha (std::string arquivo, std::string termo){
 
     std::fstream file;
@@ -39,14 +34,7 @@ void Arquivos::deleta_linha (std::string arquivo, std::string termo){
 }
 
 
-/*  
--Recebe:    o endereço de um arquivo com mais de uma informação por linha 
-            o termo que é para se encontrado
-            o separador utilizado para separar as informações na linha
-            a posição da informação na linha
 
--Deleta a linha do arquivo que tem esse termo 
-*/
 void Arquivos::deleta_linha (std::string arquivo, std::string termo, char separador, int posicao){
 
     std::fstream file;
@@ -85,12 +73,6 @@ void Arquivos::deleta_linha (std::string arquivo, std::string termo, char separa
 }
 
 
-/*  
--Recebe:    o endereço de um arquivo 
-            a linha que é para ser adcionada
-                
--Adciona a linha ao arquivo 
-*/
 void Arquivos::adciona_linha (std::string arquivo, std::string linha){
 
     std::fstream file;
@@ -105,11 +87,6 @@ void Arquivos::adciona_linha (std::string arquivo, std::string linha){
 }
 
 
-/*  
--Recebe:    o nome do arquivo
-                
--Cria o arquivo 
-*/
  void Arquivos::cria_arquivo (std::string nome){
 
     std::fstream file (nome, std::ios::out);
