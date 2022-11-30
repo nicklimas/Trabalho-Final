@@ -1,3 +1,13 @@
+/**
+ * @file erros.hpp
+ * @author Arthur, Gabriel, Mariana, Nicolas, Samantha.
+ * @brief Classes de tratamento de exceções
+ * @version 0.1
+ * @date 2022-11-30
+ * 
+ * @copyright Copyright (c) 2022
+ * 
+ */
 #ifndef ERROS_H
 #define ERROS_H
 
@@ -5,8 +15,11 @@
 #include <string>
 #include <cstring>
 
-//  Classes de tratamento de exceções
 
+/**
+ * @brief Classe para tratar erro ao tentar abrir arquivo.
+ * 
+ */
 class ErroaAbrirArquivo : public std::exception {
     private:
         std::string _mensagem;
@@ -22,6 +35,10 @@ class ErroaAbrirArquivo : public std::exception {
         }
 };
 
+/**
+ * @brief Classe para tratar erro de operação.
+ * 
+ */
 class OperacaoInterrompida : public std::exception {
     private:
         std::string _mensagem;
