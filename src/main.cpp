@@ -92,13 +92,14 @@ int main (){
                             << "Para remover um livro da biblioteca digite: remover\n"
                             << "Para ver o historico de usuarios de um livro digite: historico\n"
                             << "Para ver os dados da biblioteca digite: dados\n"
-                            << "Para sair digite: sair\n"
-                            << "\nDigite o seu comando: ";
+                            << "Para sair digite: sair\n";
+                            
                     
                     std::string entrada;
 
                     while (std::cin){
-
+                        fflush(stdin);
+                        std::cout << "\nDigite o seu comando: ";
                         std::cin >> entrada;
                         std::cout << std::endl;
 
@@ -227,13 +228,14 @@ int main (){
                             << "Para ver os livros que voce possui digite: lista\n"
                             << "Para ver os dados da sua conta digite: dados\n"
                             << "Para deletar sua conta digite: deletar (exige confirmação)\n\n"
-                            << "Para sair digite: sair\n"
-                            << "\nDigite o seu comando: ";
+                            << "Para sair digite: sair\n";
+                            
 
                     std::string entrada;
 
                     while (std::cin){
                         fflush(stdin);
+                        std::cout << "\nDigite o seu comando: ";
                         std::cin >> entrada;
                         std::cout << std::endl;
 
@@ -316,7 +318,7 @@ int main (){
                             if(usuario.get_livros()->find(biblioteca.get_livros()->find(livro)->second) == usuario.get_livros()->end())
                                 std::cout << "Livro nao encontrado\n";
                             else
-                                usuario.devolve_livro(biblioteca.get_livros()->find(livro)->second);
+                                sistema.devolve_livro(biblioteca.get_livros()->find(livro)->second, &usuario);
                             std::system("pause");
                             break;
                         }

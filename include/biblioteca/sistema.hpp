@@ -52,6 +52,7 @@ class Sistema {
         
         //  Método complementares a outros de outras classes
         void pega_livro (Livro *livro, Usuario *usuario);
+        void devolve_livro (Livro *livro, Usuario *usuario);
         void remove_livro (std::string titulo);
        
         

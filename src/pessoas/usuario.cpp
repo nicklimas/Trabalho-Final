@@ -33,6 +33,7 @@ Insere o livro no set de livros
 void Usuario::pega_livro (Livro* livro) {
     std::string nome_do_arquivo = "saves/usuarios/" + get_nome() + ".txt";
     Arquivos::adciona_linha (nome_do_arquivo, livro->get_titulo()); 
+    livro->muda_status();
     _livros.insert (livro);
 }
  

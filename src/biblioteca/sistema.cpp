@@ -196,11 +196,10 @@ Recebe um ponteiro para um livro e para um usuario
 Chama a função para adcionar esse livro ao usuario
 Muda o status do livro para emprestado
 Chama a função para atualizar o arquivo de historico do livro
-Chama a função para atualizar o livro no arquivo de livros
+Chama a função para atualizar o livro no arquivo de livros para salvá-lo como indisponível 
 */
 void Sistema::pega_livro (Livro *livro, Usuario *usuario){
     usuario->pega_livro(livro);
-    livro->muda_status();
     atualiza_historico(livro->get_titulo(), usuario->get_nome());
     atualiza_arquivo_livros(livro);
     
@@ -229,7 +228,7 @@ void Sistema::deletar_usuario (Usuario *usuario){
         std::string nome_do_arquivo = "saves/usuarios/" + usuario->get_nome() + ".txt";
         std::remove(nome_do_arquivo.c_str());
 
-        Arquivos::deleta_linha ("saves/login.txt", usuario->get_nome(), '#', 2);
+        Arquivos::deleta_linha ("saves/login.txt", usuario->get_email(), '#', 2);
         
         for (auto &x : (*usuario->get_livros())){
             x->muda_status();
@@ -244,6 +243,16 @@ void Sistema::deletar_usuario (Usuario *usuario){
 
     else 
         std::cout << "Senha incorreta\n";
+}
+
+/*
+Recebe um ponteiro para livro e um ponteiro para usuario
+Chama a função de devolução de livro do usuario para remove-lo do set e do arquivo do usuario
+Chama a função de atualizar arquivo de livros para salvá-lo como indisponível
+*/
+void Sistema::devolve_livro (Livro *livro, Usuario *usuario){
+    usuario->devolve_livro(livro);
+    atualiza_arquivo_livros(livro);
 }
 
 /*
@@ -267,3 +276,4 @@ void Sistema::remove_livro (std::string titulo){
     
     _historicos.erase(titulo);
 }
+
