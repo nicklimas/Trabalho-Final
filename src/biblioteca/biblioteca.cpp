@@ -111,7 +111,7 @@ void Biblioteca::lista_autores (){
 //Escreve na tela os livros de determinado autor
 void Biblioteca::lista_livros_do_autores (std::string autor){
     for(auto &x : _autores.find(autor)->second)
-        std::cout << x->get_titulo();
+        std::cout << x->get_titulo() << std::endl;
 }
 
 
@@ -125,7 +125,7 @@ void Biblioteca::lista_categorias (){
 //Escreve na tela os livros de determinada categoria
 void Biblioteca::lista_livros_da_categoria (std::string categoria){
     for(auto &x : _categorias.find(categoria)->second)
-        std::cout << x->get_titulo();
+        std::cout << x->get_titulo() << std::endl;
 }
 
 
@@ -174,7 +174,7 @@ Livro* Biblioteca::adciona_livro (){
             std::cin >> paginas;
             fflush(stdin);
             for (unsigned int i = 0; i < paginas.length(); i++) {
-                if (isdigit(paginas[i]) == false){
+                if (isdigit(paginas[i]) == false || std::stoi(paginas) <= 0){
                     invalido_pg = true;
                     break;
                 }
@@ -231,7 +231,7 @@ Livro* Biblioteca::adciona_livro (){
         return nullptr;
     }
 
-    std::cout   << "\nInformacoes do livro: "<<
+    std::cout   << "\n\nInformacoes do livro: "<<
                     "\n  Título: " << titulo << 
                     "\n  Autor: " << autor <<  
                     "\n  Categoria: " << categoria << 
@@ -267,6 +267,9 @@ Livro* Biblioteca::adciona_livro (){
 
     if (!existe)
         this->add_autor(autor, titulo);
+    
+    else 
+        _autores.find(autor)->second.insert(livro);
 
     for (auto &x : _categorias){
         if (x.first == categoria){
@@ -279,6 +282,9 @@ Livro* Biblioteca::adciona_livro (){
 
     if (!existe)
         this->add_categoria (categoria, titulo);
+    
+    else 
+        _categorias.find(categoria)->second.insert(livro);
         
     
     std::string linha =  titulo + "#" + autor + "#" + categoria + "#" + sinopse + "#" + paginas + "#" + corredor + "#" + prateleira + "#" + disponivel;
