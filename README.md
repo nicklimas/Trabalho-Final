@@ -1,5 +1,8 @@
 # Sistema de Biblioteca
 
+## Video mostrando o funcionamento do programa
+https://youtu.be/FwcRnVhpkoo
+
 ## Descrição
 
 Esse projeto foi criado para funcionar como uma biblioteca digital, que permite, aos seus administradores, cadastrar novos livros, ou remover livros existentes do sistema e acessar informações como os dados gerais da biblioteca ou o histórico de empréstimos de um livro específico. Aos usuários comuns, possibilita a visualização dos livros da biblioteca e suas informações(autor, categoria e sinopse), também oferece ferramentade busca por título, autor ou categoria, o usuário pode também fazer o empréstimo ou devolução de algum livro e ver dados da sua conta, como sua lista de empréstimos atual.
