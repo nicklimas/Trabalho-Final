@@ -18,7 +18,11 @@
 #include <string>
 
 
+/**
+ * @brief Classe do objeto Livro
 
+ * 
+ */
 class Livro  {
     private:
 
