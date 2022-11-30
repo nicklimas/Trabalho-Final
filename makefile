@@ -3,7 +3,7 @@ FLAGS := -I thrid_party/ -I include/ -Wall
 BUILD := build/
 SRC := src/
 TESETDIR := tests/
-TEST := teste.exe
+TEST := teste.out
 TARGET := biblioteca.exe
 
 all: main
