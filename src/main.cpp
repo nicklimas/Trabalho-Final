@@ -31,6 +31,7 @@ int main (){
             fflush(stdin);
 
             //MENU PRINCIPAL
+
             do {
                 std::cout << "--------------------------------------"<<std::endl;
                 std::cout << "\nPara logar digite: login\nPara cadastrar digite: cadastrar\nPara finalizar o programa digite: sair\n\nDigite o seu comando: ";
@@ -77,6 +78,7 @@ int main (){
                 
 
             //MENU DO ADMINISTRADOR
+
             if (login->get_classe() == "admin"){
 
                 Admin admin = Admin (login->get_email(), login->get_senha());
@@ -99,15 +101,20 @@ int main (){
 
                     while (std::cin){
                         fflush(stdin);
+
                         std::cout << "\nDigite o seu comando: ";
+        
                         std::cin >> entrada;
                         std::cout << std::endl;
 
 
                         if (entrada == "livros"){
                             fflush(stdin);
+
                             std::cout << "Livros:\n";
+
                             biblioteca.lista_livros();
+
                             std::cout << std::endl;
                             std::system("pause");
                             break;
@@ -115,9 +122,13 @@ int main (){
 
                         if (entrada == "adicionar"){
                             fflush(stdin);
+
                             std::cout << "ADICIONANDO LIVRO\n\n";
+
                             try{ 
+
                                 Livro *livro = biblioteca.adciona_livro(); 
+
                                 if (livro != nullptr)
                                     sistema.cria_historico(livro->get_titulo());
                             }
@@ -128,17 +139,23 @@ int main (){
                                 std::cout << e.what();
                                  
                             }
+
                             std::system("pause");
                             break;
                         }
 
                         if (entrada == "remover"){
                             fflush(stdin);
+
                             std::string livro;
+
                             std::cout << "Digite o nome do livro que deseja remover: ";
                             getline (std::cin, livro);
+
                             if(biblioteca.get_livros()->find(livro) == biblioteca.get_livros()->end()){
+
                                 std::cout << "Livro não encontrado\n";
+
                                 std::system("pause"); 
                                 break;
                             }
@@ -149,8 +166,10 @@ int main (){
 
                             if(confrima == "s"){
                                 try{
+
                                     sistema.remove_livro (livro);
                                     biblioteca.remove_livro(biblioteca.get_livros()->find(livro)->second);
+
                                 } catch (ErroaAbrirArquivo &e){
                                     std::cout << e.what() << std::endl;
                                     break;
@@ -164,7 +183,9 @@ int main (){
                                           
                         if(entrada == "historico"){
                             fflush(stdin);
+
                             std::cout << "Digite o nome do livro que deseja ver o histórico: ";
+
                             std::string livro;
                             getline (std::cin, livro);
 
@@ -180,10 +201,15 @@ int main (){
                         }
 
                         if(entrada == "dados"){
-                            try { std::cout << admin.view_dados(); }
+
+                            try { 
+
+                                std::cout << admin.view_dados(); 
+                            }
                             catch (ErroaAbrirArquivo &e){
                                 std::cout << e.what(); 
                             }
+
                             std::system("pause");
                             break;
                         }
@@ -198,6 +224,7 @@ int main (){
                     fflush(stdin);
 
                     if(entrada == "sair"){
+
                         std::cout << "Voce finalizou sua sessao e sera redirecionado para o menu principal\n";
                         std::system("pause");
                         break;
@@ -210,6 +237,7 @@ int main (){
 
             //MENU DO USUARIO
             if (login->get_classe() == "usuario"){
+
                 Usuario usuario = Usuario (login->get_nome(), login->get_email(), login->get_senha());
                 usuario.inicia_set_livros (biblioteca.get_livros());
 
@@ -235,31 +263,45 @@ int main (){
 
                     while (std::cin){
                         fflush(stdin);
+
                         std::cout << "\nDigite o seu comando: ";
                         std::cin >> entrada;
+
                         std::cout << std::endl;
 
                         if(entrada == "busca"){
                             fflush(stdin);
+
                             std::string pesquisa;
+
                             std::cout << "Digite o nome de um livro, de um autor ou de uma categoria: ";
                             getline (std::cin, pesquisa);
+
                             Livro *livro = nullptr;
-                            try {livro = biblioteca.find_livro(pesquisa); }
+
+                            try {
+                                livro = biblioteca.find_livro(pesquisa); 
+                            }
                             catch (OperacaoInterrompida &e){
                                 std::cout << e.what(); 
                                 std::system("pause");
                                 break;
                             }
+
                             livro->view_dados();
+
                             if (livro->get_status()){
+
                                 std::cout << "O livro não está disponível para emprestimo\n";
+
                                 std::system("pause");
                                 break;
                             }
                             if (!(livro->get_status())){
+
                                 std::string emprestimo;
                                 std::cout << "Deseja pegar esse livro emprestado? (s/n): ";
+
                                 do{
                                     std::cin >> emprestimo;
                                 } while (!(emprestimo == "s" || emprestimo == "n"));
@@ -268,7 +310,9 @@ int main (){
                                     break;
                                 
                                 if(emprestimo == "s"){
+
                                     sistema.pega_livro(livro, &usuario);
+
                                     std::cout << "\nLivro emprestado\n";
                                     std::system("pause");
                                     break;
@@ -281,24 +325,33 @@ int main (){
                         }
 
                         if(entrada == "livros"){
+
                             std::cout << "Livros:\n";
+
                             biblioteca.lista_livros();
+
                             std::cout << std::endl;
                             std::system("pause");
                             break;
                         }
                         
                         if(entrada == "autores"){
+
                             std::cout << "Autores:\n";
+
                             biblioteca.lista_autores();
+
                             std::cout << std::endl;
                             std::system("pause");
                             break;
                         }
 
                         if(entrada == "categorias"){
+
                             std::cout << "Categorias:\n";
+
                             biblioteca.lista_categorias();
+
                             std::cout << std::endl;
                             std::system("pause");
                             break;
@@ -306,39 +359,51 @@ int main (){
 
                         if(entrada == "devolver"){
                             fflush(stdin);
+
                             if (usuario.get_livros()->empty()){
+
                                 std::cout << "Você não possui livros\n";
                                 std::system("pause");
                                 break;
                             }
 
                             std::string livro;
+
                             std::cout << "Digite o nome do livro que deseja devolver: ";
                             getline (std::cin, livro);
+
                             if(usuario.get_livros()->find(biblioteca.get_livros()->find(livro)->second) == usuario.get_livros()->end())
                                 std::cout << "Livro nao encontrado\n";
+
                             else
                                 sistema.devolve_livro(biblioteca.get_livros()->find(livro)->second, &usuario);
+
                             std::system("pause");
                             break;
                         }
 
                         if(entrada == "lista"){
+
                             std::cout << usuario.view_livros() << std::endl << std::endl;
+
                             std::system("pause");
                             break;
                         }
 
                         if(entrada == "dados"){
+
                             std::cout << usuario.view_dados();
+
                             std::system("pause");
                             break;
                         }
 
                         if(entrada == "deletar"){
                             try {
+
                                 sistema.deletar_usuario(&usuario);
                                 break;
+
                                 }
                             catch (ErroaAbrirArquivo &e){
                                 std::cout << e.what(); 
@@ -359,6 +424,7 @@ int main (){
                     fflush(stdin);
 
                     if(entrada == "sair" || entrada == "deletar"){
+                        
                         std::cout << "Voce finalizou sua sessao e sera redirecionado para o menu principal\n";
                         std::system("pause");
                         break;
