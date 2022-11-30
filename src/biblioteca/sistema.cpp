@@ -1,21 +1,14 @@
 #include "../../include/biblioteca/sistema.hpp"
 
-//Chama as funções para iniciar os atributos a partir do arquvios de salvamento
+
 Sistema::Sistema (){
     inicia_historico ();
 }
 
-//Destrutor
+
 Sistema::~Sistema (){}
 
-/*
-Metodo para logar a pessoa no sistema
-Le da entrada um email e uma senha
-Compara a entrada com as informações no arquivo de login
-Caso as informações batam, o login é efetuado com sucesso
-Caso não a função termina
-Retorna um ponteiro do tipo pessoa com as informações do usuario logado
-*/
+
 Pessoa* Sistema::login (){
     std::fstream arquivo;
     arquivo.open("saves/login.txt", std::ios::in);
@@ -60,11 +53,7 @@ Pessoa* Sistema::login (){
 
 }
 
-/*
-Metodo para cadastrar um usuario
-Le na entrada um nome, um email e uma senha
-Adciona o novo usuario no arquivo de login
-*/
+
 void Sistema::cadastra_usuario(){
 
     std::string nome, email, senha, confirmar;
@@ -120,7 +109,7 @@ void Sistema::cadastra_usuario(){
 }
 
 
-//Le o arquivo de historico de cada livro e inicia o map de historico
+
 void Sistema::inicia_historico (){
     std::ifstream livros ("saves/livros.txt");
 
@@ -155,13 +144,12 @@ void Sistema::inicia_historico (){
     
 }
 
-//Cria o historico de um livro novo criado
 void Sistema::cria_historico (std::string titulo){
     std::vector <std::string> historico {};
     _historicos [titulo] = historico;
 }
 
-//Recebe o titulo do livro e escreve na tela o historico desse livro
+
 void Sistema::get_historico (std::string titulo){
     if (_historicos.find(titulo)->second.empty())
         std::cout << "Este livro não tem histórico\n";
@@ -170,17 +158,14 @@ void Sistema::get_historico (std::string titulo){
             std::cout << *x << std::endl;
 }
 
-/*
-Recebe o titulo do livro e o nome do usuario
-Atualiza o arquivo e o map do historico deste livro adcionando o usuario a ele
-*/
+
 void Sistema::atualiza_historico (std::string titulo, std::string nome){
     std::string nome_do_arquivo = "saves/historico/" + titulo + ".txt";
     Arquivos::adciona_linha (nome_do_arquivo, nome);
     _historicos.find(titulo)->second.push_back(nome);
 }
 
-//Recebe um ponteiro para um livro e atualiza o arquivo desse livro quando ele é emprestado ou devolvido
+
 void Sistema::atualiza_arquivo_livros (Livro *livro){
     std::string atualiza = livro->get_titulo() + "#" + livro->get_autor() + "#" + livro->get_categoria() + "#" + livro->get_sinopse() + 
                             "#" + livro->get_paginas() + "#" + std::to_string(livro->get_localizacao()[0]) + "#" + std::to_string(livro->get_localizacao()[1]) + 
@@ -191,13 +176,8 @@ void Sistema::atualiza_arquivo_livros (Livro *livro){
     
 }
 
-/*
-Recebe um ponteiro para um livro e para um usuario
-Chama a função para adcionar esse livro ao usuario
-Muda o status do livro para emprestado
-Chama a função para atualizar o arquivo de historico do livro
-Chama a função para atualizar o livro no arquivo de livros para salvá-lo como indisponível 
-*/
+
+
 void Sistema::pega_livro (Livro *livro, Usuario *usuario){
     usuario->pega_livro(livro);
     atualiza_historico(livro->get_titulo(), usuario->get_nome());
@@ -205,11 +185,8 @@ void Sistema::pega_livro (Livro *livro, Usuario *usuario){
     
 }
 
-/*
-Recebe um ponteiro para usuario
-Deleta o usuario do arquivo de login
-Deleta o arquivo de livros do usuario
-*/
+
+
 void Sistema::deletar_usuario (Usuario *usuario){
     std::string entrada;
     std::cout << "Você tem certeza disso? (s/n): ";
@@ -245,22 +222,14 @@ void Sistema::deletar_usuario (Usuario *usuario){
         std::cout << "Senha incorreta\n";
 }
 
-/*
-Recebe um ponteiro para livro e um ponteiro para usuario
-Chama a função de devolução de livro do usuario para remove-lo do set e do arquivo do usuario
-Chama a função de atualizar arquivo de livros para salvá-lo como indisponível
-*/
+
+
 void Sistema::devolve_livro (Livro *livro, Usuario *usuario){
     usuario->devolve_livro(livro);
     atualiza_arquivo_livros(livro);
 }
 
-/*
-Auxiliar da função remove livro da biblioteca
-Recebe um ponteiro para um livro
-Deleta o livro do arquivo de livros do usuario que possui ele no momento
-Deleta o livro do map de historico
-*/
+
 void Sistema::remove_livro (std::string titulo){
     //RETIRANDO LIVRO DO USUARIO QUE O POSSUI
     
