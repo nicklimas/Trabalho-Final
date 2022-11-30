@@ -20,7 +20,10 @@
 #include <sstream>
 
 
-
+/**
+ * @brief Classe do administrador
+ * 
+ */
 class Admin : public Pessoa {
 
     public:
