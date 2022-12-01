@@ -109,6 +109,7 @@ void Biblioteca::lista_autores (){
 
 
 void Biblioteca::lista_livros_do_autores (std::string autor){
+    std::cout << std::endl;
     for(auto &x : _autores.find(autor)->second)
         std::cout << x->get_titulo() << std::endl;
 }
@@ -122,6 +123,7 @@ void Biblioteca::lista_categorias (){
 
 
 void Biblioteca::lista_livros_da_categoria (std::string categoria){
+    std::cout << std::endl;
     for(auto &x : _categorias.find(categoria)->second)
         std::cout << x->get_titulo() << std::endl;
 }
@@ -297,7 +299,7 @@ Livro* Biblioteca::find_livro (std::string pesquisa){
     }
     if (_autores.find(pesquisa) != _autores.end()){
         lista_livros_do_autores(pesquisa);
-        std::cout << "\n\nQual livro deseja escolher ?  ";
+        std::cout << "\nQual livro deseja escolher ?  ";
         std::string escolha;
         getline (std::cin, escolha);
         if (_livros.find(escolha) != _livros.end())
@@ -308,7 +310,7 @@ Livro* Biblioteca::find_livro (std::string pesquisa){
 
     if (_categorias.find(pesquisa) != _categorias.end()){
         lista_livros_da_categoria (pesquisa);
-        std::cout << "\n\nQual livro deseja escolher ?  ";
+        std::cout << "\nQual livro deseja escolher ?  ";
         std::string escolha;
         getline (std::cin, escolha);
         if (_livros.find(escolha) != _livros.end())

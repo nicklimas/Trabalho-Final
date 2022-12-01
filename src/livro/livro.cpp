@@ -46,7 +46,7 @@ void Livro::muda_status () {
 }
 
 void Livro::view_dados () {
-    std::cout   << "Título: " << _titulo << std::endl 
+    std::cout   << "\nTítulo: " << _titulo << std::endl 
                 << "Autor: " << _autor << std::endl 
                 << "Categoria: " << _categoria << std::endl 
                 << "Sinopse: " << _sinopse << std::endl 
