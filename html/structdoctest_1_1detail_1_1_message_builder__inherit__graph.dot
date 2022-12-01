@@ -1,0 +1,10 @@
+digraph "doctest::detail::MessageBuilder"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  Node1 [label="{doctest::detail::Message\lBuilder\n|+ m_stream\l+ logged\l|+ MessageBuilder()\l+ MessageBuilder()\l+ MessageBuilder()\l+ operator=()\l+ operator=()\l+ ~MessageBuilder()\l+ operator,()\l+ operator\<\<()\l+ operator*()\l+ log()\l+ react()\l}",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+  Node2 -> Node1 [dir="back",color="steelblue1",style="solid",arrowtail="onormal"];
+  Node2 [label="{doctest::MessageData\n|+ m_string\l+ m_file\l+ m_line\l+ m_severity\l|}",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$structdoctest_1_1_message_data.html",tooltip=" "];
+}
