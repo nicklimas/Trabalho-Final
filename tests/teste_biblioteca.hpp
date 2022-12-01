@@ -16,7 +16,7 @@ TEST_CASE("Testando Biblioteca: ") {
 
     Livro *livro = new Livro;
     livro = b.adciona_livro();
-    //automatizar cin???
+    //entradas.txt
     CHECK(livro->get_titulo() == "testando");
     //CHECK(b.find_livro(livro)== &livro);
     b.remove_livro(livro);
@@ -27,6 +27,20 @@ TEST_CASE("Testando Biblioteca: ") {
     //find Livro caso negativo
     CHECK_THROWS(b.find_livro("Livro IneXistente"));
     
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+    //add autor REVER
+    b.add_autor("testante","test");
+    std::string autor;
+    autor = (Biblioteca::_autores.find("testante")) ;
+    CHECK(autor == "testante");
+
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+    //add categoria REVER
+    b.add_categoria("CatTest","test");
+    std::string cat;
+    cat = (Biblioteca::_categoria.find("CatTest")) ;
+    CHECK(autor == "CatTest");
+
 
 
 
@@ -67,8 +81,8 @@ TEST_CASE("Testando Biblioteca: ") {
     void lista_livros_da_categoria (std::string categoria);
 
     // Metodos que atualizam arquivos de salvamento
-    void add_autor (std::string autor, std::string titulo);
-    void add_categoria (std::string categoria, std::string titulo);
+        void add_autor (std::string autor, std::string titulo);
+        void add_categoria (std::string categoria, std::string titulo);
 
     // Metodos de criação e deleção de livros do sistema da biblioteca
         Livro* adciona_livro ();
@@ -76,4 +90,7 @@ TEST_CASE("Testando Biblioteca: ") {
 
     // Metodo para achar um livro dentro do sistema
         Livro* find_livro (std::string pesquisa);  
+
+
+//=======
 */
