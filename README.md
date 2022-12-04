@@ -4,7 +4,7 @@
 https://youtu.be/FwcRnVhpkoo
 
 ## Diagrama de Classes
-https://cacoo.com/diagrams/F3sjow4N4kr479u2-C3A0C.png
+https://prnt.sc/EmhhnhJta5zb
 
 ## Como usar
 - Para compilar apenas use o makefile
