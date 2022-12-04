@@ -1,0 +1,15 @@
+<map id="include/biblioteca/arquivos.hpp" name="include/biblioteca/arquivos.hpp">
+<area shape="rect" id="node1" title="Classe assistente para facilitar a manipulação de arquivos." alt="" coords="636,5,773,47"/>
+<area shape="rect" id="node2" href="$usuario_8hpp.html" title="Classe do usuario." alt="" coords="672,95,879,121"/>
+<area shape="rect" id="node3" href="$biblioteca_8hpp.html" title="Classe responsável por armazenar os livros existentes, adicionar e remover livros,..." alt="" coords="432,169,569,211"/>
+<area shape="rect" id="node8" href="$sistema_8hpp.html" title="Classe responsável por armazenar o histórico de livros." alt="" coords="599,169,736,211"/>
+<area shape="rect" id="node13" href="$arquivos_8cpp.html" title=" " alt="" coords="903,95,1099,121"/>
+<area shape="rect" id="node11" href="$usuario_8cpp.html" title=" " alt="" coords="959,177,1136,203"/>
+<area shape="rect" id="node12" href="$teste__usuario_8hpp.html" title=" " alt="" coords="760,177,935,203"/>
+<area shape="rect" id="node4" href="$biblioteca_8cpp.html" title=" " alt="" coords="5,259,209,285"/>
+<area shape="rect" id="node5" href="$main_8cpp.html" title=" " alt="" coords="448,259,553,285"/>
+<area shape="rect" id="node6" href="$teste__biblioteca_8hpp.html" title=" " alt="" coords="233,259,424,285"/>
+<area shape="rect" id="node7" href="$teste_8cpp.html" title=" " alt="" coords="824,333,943,360"/>
+<area shape="rect" id="node9" href="$sistema_8cpp.html" title=" " alt="" coords="578,259,770,285"/>
+<area shape="rect" id="node10" href="$teste__sistema_8hpp.html" title=" " alt="" coords="794,259,973,285"/>
+</map>

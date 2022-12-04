@@ -1,0 +1,4 @@
+<map id="Admin" name="Admin">
+<area shape="rect" id="node1" title="Classe do administrador." alt="" coords="5,248,129,369"/>
+<area shape="rect" id="node2" href="$classPessoa.html" title="Classe mãe de usuario e admin." alt="" coords="5,5,129,200"/>
+</map>

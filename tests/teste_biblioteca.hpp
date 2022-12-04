@@ -18,7 +18,7 @@ TEST_CASE("Testando Biblioteca: ") {
     livro = b.adciona_livro();
     //entradas.txt
     CHECK(livro->get_titulo() == "testando");
-    //CHECK(b.find_livro(livro)== &livro);
+    CHECK(b.find_livro(livro->get_titulo())== livro);
     b.remove_livro(livro);
     CHECK_FALSE(livro->get_titulo() == "testando");
 
@@ -31,14 +31,14 @@ TEST_CASE("Testando Biblioteca: ") {
     //add autor REVER
     b.add_autor("testante","test");
     std::string autor;
-    autor = (Biblioteca::_autores.find("testante")) ;
+    //autor = (Biblioteca::_autores.find("testante")) ;
     CHECK(autor == "testante");
 
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
     //add categoria REVER
     b.add_categoria("CatTest","test");
     std::string cat;
-    cat = (Biblioteca::_categoria.find("CatTest")) ;
+    //cat = (Biblioteca::_categoria.find("CatTest")) ;
     CHECK(autor == "CatTest");
 
 

@@ -1,8 +1,0 @@
-digraph "Sistema"
-{
- // LATEX_PDF_SIZE
-  bgcolor="transparent";
-  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
-  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
-  Node1 [label="{Sistema\n||+ Sistema()\l+ ~Sistema()\l+ inicia_historico()\l+ login()\l+ cadastra_usuario()\l+ deletar_usuario()\l+ cria_historico()\l+ get_historico()\l+ atualiza_historico()\l+ atualiza_arquivo_livros()\l+ pega_livro()\l+ devolve_livro()\l+ remove_livro()\l}",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Classe responsável por armazenar o histórico de livros."];
-}
