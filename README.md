@@ -63,6 +63,57 @@ Funcionalidades do menu inicial:
 
 10.Sair: Faz o logout do usuário e volta ao menu inicial.
 
+## Para gerar a documentação no Windows, siga o passo a passo:
+
+1. Faça o download do instalador do Doxygen em https://www.doxygen.nl/download.html. Procure por: "A binary distribution for Windows. All 64bit versions of Windows are supported". Utilizando o Windows Explorer, acesse o local onde o arquivo foi salvo (por padrão, Downloads). Utilize um duplo clique no arquivo doxygen-1.7.6.1-setup.exe para executar o instalador do Doxygen.
+
+2. Faça o download do instalador do Graphviz em http://graphviz.org/pub/graphviz/stable/windows/graphviz-2.28.0.msi. O instalador do Graphviz é bem simples, apenas siga as instruções do instalador.
+
+3. Execute o Doxygen.
+
+4. Na pagina aberta, preencha com:
+working directory: (o diretório-raiz onde o projeto se encontra).
+Project name: Biblioteca
+Project version or id: 1.0.
+Source code directory: Trabalho-final. Marque a opção Scan recursively.
+Destination directory: (local onde deseja criar a documentação.)
+
+5. Em Wizard / Mode:
+extraction mode: Documented entities only. 
+programming language: C++.
+
+6. Em Wizard / Output:
+HTML. Selecione também With search function.
+
+7. Em Wizard / Diagrams:
+Marque a opção Use dot tool from the GraphViz package e marque abaixo as opções de gráficos que deseja gerar.
+
+8. Em Expert / Project:
+TYPEDEF_HIDES_STRUCT: marcado.
+ 
+9. Em Expert / Build:
+EXTRACT_STATIC: marcado.
+EXTRACT_LOCAL_METHODS: marcado.
+
+10. Em Expert / Messages:
+WARN_NO_PARAMDOC: marcado. 
+ 
+11. Em Expert / Source Browser:
+VERBATIM_HEADERS: não marcado. 
+
+12. Expert / Index
+ALPHABETICAL_INDEX: não marcado.
+ 
+13. Em Expert / Dot:
+HAVE_DOT: marcado.
+UML_LOOK: marcado.
+DOT_PATH:  A localização do dot instalado anteriormente.
+
+14. Para executar Doxygen de dentro do Doxywizard, abra o Doxyfile (presente dentro  do projeto) no Doxywizard, vá para a aba Run e então clique no botão Run doxygen. Clique em Show HTML output para ver a documentação gerada. Também pode ser acessada em "index.html" na pasta de documentação gerada.
+
+- Passo a passo baseado em: https://inacioferrarini.wordpress.com/pt-br/documentation/doxygen/
+
+
 ## Autores
 
 Arthur Ferreira Vilela
