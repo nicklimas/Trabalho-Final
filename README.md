@@ -4,7 +4,6 @@
 https://youtu.be/FwcRnVhpkoo
 
 ## Diagrama de Classes
-image.png
 https://cacoo.com/diagrams/F3sjow4N4kr479u2-C3A0C.png
 
 ## Como usar
